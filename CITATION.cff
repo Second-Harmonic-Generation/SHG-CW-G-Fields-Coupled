@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this article, please cite it as below."
+title: "Heat coupled Gaussian continuous-wave double-pass type-II second harmonic generation: inclusion of thermally induced phase mismatching and thermal lensing"
+authors:
+  - family-names: "Sabaeian"
+    given-names: "Mohammad"
+  - family-names: "Jalil-Abadi"
+    given-names: "Fatemeh Sedaghat"
+  - family-names: "Rezaee"
+    given-names: "Mostafa Mohammad"
+  - family-names: "Motazedian"
+    given-names: "Alireza"
+doi: 10.1364/OE.22.025615
+url: "https://doi.org/10.1364/OE.22.025615"
+repository-code: "https://github.com/Second-Harmonic-Generation/SHG-CW-G-Fields-Coupled"
+date-released: 2014-10-20
+journal: "Optics Express"
+publisher: "Optical Society of America"
+volume: "22"
+issue: "21"
+start: "25615"
+end: "25628"
+abstract: >
+  A time-dependent model for continuous-wave type-II SHG in a double-pass cavity
+  is developed that couples eight equations for the forward/backward ordinary and
+  extraordinary fundamental fields, the forward/backward second-harmonic field,
+  heat diffusion, and thermally induced phase mismatching (TIPM). Thermal lensing
+  is included via temperature-dependent refractive indices. The model explains
+  efficiency reduction under heating, agrees with prior experiments, and shows
+  how optimizing beam spot size, pump power, and crystal length maximizes SHG efficiency.
+keywords:
+  - "second harmonic generation"
+  - "KTP"
+  - "thermal effects"
+  - "thermally induced phase mismatching"
+  - "thermal lensing"
+  - "double-pass cavity"
+  - "continuous-wave"
+  - "type-II"
