@@ -68,53 +68,93 @@ The toolkit provides comprehensive modules for geometry and material definitions
 
 The toolkit supports parameterized scenario sweeps including temperature-dependent versus constant thermal conductivity, convection with and without radiation boundary conditions, and heat-transfer coefficients spanning 6.5–2.0×10⁴ W·m⁻²·K⁻¹. It features compiled Fortran kernels with built-in benchmark reporting, reproducible pipelines with versioned code repository, and exportable datasets with spatiotemporal temperature fields. The toolkit generates both radial and axial temperature profiles for comprehensive analysis.
 
-The implementation has been validated by reproducing temperature distributions and trends for KTP under Gaussian CW pumping, including the effects of temperature-dependent conductivity and boundary conditions. This toolkit was used to solve the thermal modeling problem described in the research article **"Temperature Distribution in a Gaussian End-Pumped Nonlinear KTP Crystal: the Temperature Dependence of Thermal Conductivity and Radiation Boundary Condition"**.  
+The implementation has been validated by reproducing temperature distributions and trends for KTP under Gaussian CW pumping, including the effects of temperature-dependent conductivity and boundary conditions. This toolkit was used to solve the thermal modeling problem described in the research article **"Temperature Distribution in a Gaussian End-Pumped Nonlinear KTP Crystal: the Temperature Dependence of Thermal Conductivity and Radiation Boundary Condition"**.
 
 
-aaa
+
+```
+Folder PATH listing
++---citation                    <-- Reference documents and citations
+│       1_Heat-Equation_Continu… <-- Heat equation analytical solution
+│       2_Heat-Equation_Continu… <-- Heat equation continuous wave
+│       3_Heat-Equation_Pulsed-… <-- Heat equation pulsed wave
+│       4_Phase-Mismatch_Pulsed… <-- Phase mismatch analysis
+│       5_Ideal_Continuous-Wave… <-- Ideal continuous wave study
+│       6_Ideal_Pulsed-Wave_Bes… <-- Ideal pulsed wave Bessel
+│       7_Coupled_Continuous-Wa… <-- Coupled continuous wave
+│       README.md               <-- Citation documentation
+│
++---images                      <-- Visual assets and graphics
+│       SHG-banner.png          <-- Project banner image
+│
++---results                     <-- Computational output data
+│       Psi_12_m_r.plt          <-- Psi field mode 12 minus radial
+│       Psi_12_m_z.plt          <-- Psi field mode 12 minus axial
+│       Psi_12_p_r.plt          <-- Psi field mode 12 plus radial
+│       Psi_12_p_z.plt          <-- Psi field mode 12 plus axial
+│       Psi_22_m_r.plt          <-- Psi field mode 22 minus radial
+│       Psi_22_m_z.plt          <-- Psi field mode 22 minus axial
+│       Psi_22_p_r.plt          <-- Psi field mode 22 plus radial
+│       Psi_22_p_z.plt          <-- Psi field mode 22 plus axial
+│       Psi_32_m_r.plt          <-- Psi field mode 32 minus radial
+│       Psi_32_m_z.plt          <-- Psi field mode 32 minus axial
+│       Psi_32_p_r.plt          <-- Psi field mode 32 plus radial
+│       Psi_32_p_z.plt          <-- Psi field mode 32 plus axial
+│       ST_85_time_01_p_r.plt   <-- ST time series pressure radial
+│       ST_85_time_01_p_t.plt   <-- ST time series pressure theta
+│       ST_85_time_01_p_z.plt   <-- ST time series pressure axial
+│       ST_85_time_01_T_r.plt   <-- ST time series temperature radial
+│       ST_85_time_01_T_t.plt   <-- ST time series temperature theta
+│       ST_85_time_01_T_z.plt   <-- ST time series temperature axial
+│
++---src                         <-- Source code and implementation
+│       Code_SHG-CW-G-Coupled.… <-- Main Fortran simulation code
+│
+│       Article_SHG-CW-G-Coupl… <-- Main research article PDF
+│       CITATION.cff            <-- Citation metadata file
+│       LICENSE                 <-- Project license information
+│       README.md               <-- Project documentation
+```
 
 ## 2. Getting Started
 
 ### 2.1. Prerequisites
 - **Fortran Compiler** (gfortran, Intel Fortran, or similar)
 - **Text Editor** (VS Code, Cursor, or any Fortran-capable editor)
-- **PDF Reader** (for accessing research papers)
+- **PDF Reader** (for accessing research papers and documentation)
 - **Git** (for cloning the repository)
+- **Make** (for building the project, optional but recommended)
 
 ### 2.2. Quick Start
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Second-Harmonic-Generation/SHG-CW-G-Heat-Equation.git
-   cd SHG-CW-G-Heat-Equation
+   git clone https://github.com/Second-Harmonic-Generation/SHG-CW-G-Fields-Coupled.git
+   cd SHG-CW-G-Fields-Coupled
    ```
 
 2. **Explore the Research Papers**
-   - Navigate to the `citation/` folder
-   - Read the main research paper: `Article_SHG-CW-G-Heat-Equation.pdf`
-   - Review additional papers for comprehensive understanding
+   - Open `Article_SHG-CW-G-Coupled.pdf` for the main research article
+   - Review the `citation/` folder for supporting references
+   - Read the `README.md` files in each subdirectory for detailed explanations
 
-3. **Compile and Run the Toolkit**
+3. **Compile and Run the Code**
    ```bash
-   cd src
-   gfortran -o heat_equation Code_SHG-CW-G-Heat-Equation.f90
-   ./heat_equation
+   cd src/
+   gfortran -o shg_simulation Code_SHG-CW-G-Coupled.f90
+   ./shg_simulation
    ```
 
 4. **Analyze Results**
-   - Check the `results/` folder for output files and benchmark data
-   - Examine `.plt` files for temperature distribution profiles (radial, transverse, axial)
-   - Use plotting software (Gnuplot, Python matplotlib, etc.) to visualize results
+   - Check the `results/` folder for generated plot data files (.plt format)
+   - Use your preferred plotting software to visualize the results
+   - Compare with the theoretical predictions in the research papers
 
-5. **Run Parameterized Scenarios** (Optional)
-   - Edit the Fortran source code to change simulation parameters
-   - Explore different scenarios:
-     - Temperature-dependent vs. constant thermal conductivity
-     - Convection ± radiation boundary conditions
-     - Various heat-transfer coefficients (6.5–2.0×10⁴ W·m⁻²·K⁻¹)
-   - Recompile and run to compare results with published findings
-
----
+5. **Development Workflow**
+   - Edit the Fortran source code in `src/Code_SHG-CW-G-Coupled.f90`
+   - Modify parameters as needed for your specific analysis
+   - Recompile and run to generate new results
+   - Document your findings and modifications
 
 
 ## 3. How to Cite Us
