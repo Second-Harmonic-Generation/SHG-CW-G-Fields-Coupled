@@ -60,60 +60,73 @@ Article title:
 
 ## 1. About this repository
 
-This repository contains the **Toolkit for Modeling of 3D Temperature Distribution in KTP Crystal: Continuous-Wave Gaussian Second Harmonic Generation**, an open-source toolkit for modeling the thermal dynamics that underpin continuous-wave second-harmonic generation (CW SHG), using KTP as a case study.
+This repository contains the **Computational Toolkit for Heat Coupled Gaussian Continuous-Wave Double-Pass Type-II Second Harmonic Generation**, an open-source Fortran implementation developed to solve the thermal effects problem described in the research article:
+
+**"Heat coupled Gaussian continuous-wave double-pass type-II second harmonic generation: inclusion of thermally induced phase mismatching and thermal lensing"**
 
 ### Toolkit Overview
 
-The toolkit provides comprehensive modules for geometry and material definitions of KTP crystals, boundary and cooling models with various heat transfer mechanisms, and transient and steady-state finite-difference solvers for temperature field computation.
+This toolkit implements the eight-coupled equation model that simultaneously solves the thermal effects in type II second harmonic generation (SHG) of Gaussian continuous-wave (CW) in a double-pass cavity. The model includes thermally induced phase mismatching (TIPM) along with thermal lensing through the interposing of heat and TIPM equations.
 
-The toolkit supports parameterized scenario sweeps including temperature-dependent versus constant thermal conductivity, convection with and without radiation boundary conditions, and heat-transfer coefficients spanning 6.5–2.0×10⁴ W·m⁻²·K⁻¹. It features compiled Fortran kernels with built-in benchmark reporting, reproducible pipelines with versioned code repository, and exportable datasets with spatiotemporal temperature fields. The toolkit generates both radial and axial temperature profiles for comprehensive analysis.
+### Key Components
 
-The implementation has been validated by reproducing temperature distributions and trends for KTP under Gaussian CW pumping, including the effects of temperature-dependent conductivity and boundary conditions. This toolkit was used to solve the thermal modeling problem described in the research article **"Temperature Distribution in a Gaussian End-Pumped Nonlinear KTP Crystal: the Temperature Dependence of Thermal Conductivity and Radiation Boundary Condition"**.
+The toolkit provides:
+- **Eight-coupled equation solver** for simultaneous solution of SHG, heat, and TIPM equations
+- **Double-pass cavity simulation** with proper boundary conditions and mirror reflectivities
+- **Thermal effects modeling** including temperature distribution and phase mismatching
+- **Time evolution analysis** from transient to steady-state conditions
+- **Gaussian beam propagation** with absorption and thermal effects
+- **KTP crystal properties** with temperature-dependent material parameters
+- **Home-computer compatible** numerical procedures for efficient computation
+
+### Validation
+
+The implementation has been validated by reproducing experimental data with excellent agreement, as reported in the research article. The model successfully demonstrates how SHG is affected in time when heat is generated in the crystal, providing crucial insights into thermal limitations in continuous-wave second harmonic generation systems. This toolkit was specifically developed to solve the thermal modeling problem described in the research article and provides a complete computational framework for analyzing thermal effects in double-pass SHG systems.
 
 
 
 ```
 Folder PATH listing
-+---citation                    <-- Reference documents and citations
-│       1_Heat-Equation_Continu… <-- Heat equation analytical solution
-│       2_Heat-Equation_Continu… <-- Heat equation continuous wave
-│       3_Heat-Equation_Pulsed-… <-- Heat equation pulsed wave
-│       4_Phase-Mismatch_Pulsed… <-- Phase mismatch analysis
-│       5_Ideal_Continuous-Wave… <-- Ideal continuous wave study
-│       6_Ideal_Pulsed-Wave_Bes… <-- Ideal pulsed wave Bessel
-│       7_Coupled_Continuous-Wa… <-- Coupled continuous wave
-│       README.md               <-- Citation documentation
++---citation                      <-- Reference documents and citations
+│       1_Heat-Equation_Continu…  <-- Heat equation analytical solution
+│       2_Heat-Equation_Continu…  <-- Heat equation continuous wave
+│       3_Heat-Equation_Pulsed-…  <-- Heat equation pulsed wave
+│       4_Phase-Mismatch_Pulsed…  <-- Phase mismatch analysis
+│       5_Ideal_Continuous-Wave…  <-- Ideal continuous wave study
+│       6_Ideal_Pulsed-Wave_Bes…  <-- Ideal pulsed wave Bessel
+│       7_Coupled_Continuous-Wa…  <-- Coupled continuous wave
+│       README.md                 <-- Citation documentation
 │
-+---images                      <-- Visual assets and graphics
-│       SHG-banner.png          <-- Project banner image
++---images                        <-- Visual assets and graphics
+│       SHG-banner.png            <-- Project banner image
 │
-+---results                     <-- Computational output data
-│       Psi_12_m_r.plt          <-- Psi field mode 12 minus radial
-│       Psi_12_m_z.plt          <-- Psi field mode 12 minus axial
-│       Psi_12_p_r.plt          <-- Psi field mode 12 plus radial
-│       Psi_12_p_z.plt          <-- Psi field mode 12 plus axial
-│       Psi_22_m_r.plt          <-- Psi field mode 22 minus radial
-│       Psi_22_m_z.plt          <-- Psi field mode 22 minus axial
-│       Psi_22_p_r.plt          <-- Psi field mode 22 plus radial
-│       Psi_22_p_z.plt          <-- Psi field mode 22 plus axial
-│       Psi_32_m_r.plt          <-- Psi field mode 32 minus radial
-│       Psi_32_m_z.plt          <-- Psi field mode 32 minus axial
-│       Psi_32_p_r.plt          <-- Psi field mode 32 plus radial
-│       Psi_32_p_z.plt          <-- Psi field mode 32 plus axial
-│       ST_85_time_01_p_r.plt   <-- ST time series pressure radial
-│       ST_85_time_01_p_t.plt   <-- ST time series pressure theta
-│       ST_85_time_01_p_z.plt   <-- ST time series pressure axial
-│       ST_85_time_01_T_r.plt   <-- ST time series temperature radial
-│       ST_85_time_01_T_t.plt   <-- ST time series temperature theta
-│       ST_85_time_01_T_z.plt   <-- ST time series temperature axial
++---results                       <-- Computational output data
+│       Psi_12_m_r.plt            <-- Psi field mode 12 minus radial
+│       Psi_12_m_z.plt            <-- Psi field mode 12 minus axial
+│       Psi_12_p_r.plt            <-- Psi field mode 12 plus radial
+│       Psi_12_p_z.plt            <-- Psi field mode 12 plus axial
+│       Psi_22_m_r.plt            <-- Psi field mode 22 minus radial
+│       Psi_22_m_z.plt            <-- Psi field mode 22 minus axial
+│       Psi_22_p_r.plt            <-- Psi field mode 22 plus radial
+│       Psi_22_p_z.plt            <-- Psi field mode 22 plus axial
+│       Psi_32_m_r.plt            <-- Psi field mode 32 minus radial
+│       Psi_32_m_z.plt            <-- Psi field mode 32 minus axial
+│       Psi_32_p_r.plt            <-- Psi field mode 32 plus radial
+│       Psi_32_p_z.plt            <-- Psi field mode 32 plus axial
+│       ST_85_time_01_p_r.plt     <-- ST time series pressure radial
+│       ST_85_time_01_p_t.plt     <-- ST time series pressure theta
+│       ST_85_time_01_p_z.plt     <-- ST time series pressure axial
+│       ST_85_time_01_T_r.plt     <-- ST time series temperature radial
+│       ST_85_time_01_T_t.plt     <-- ST time series temperature theta
+│       ST_85_time_01_T_z.plt     <-- ST time series temperature axial
 │
-+---src                         <-- Source code and implementation
-│       Code_SHG-CW-G-Coupled.… <-- Main Fortran simulation code
++---src                           <-- Source code and implementation
+│       Code_SHG-CW-G-Coupled.…   <-- Main Fortran simulation code
 │
-│       Article_SHG-CW-G-Coupl… <-- Main research article PDF
-│       CITATION.cff            <-- Citation metadata file
-│       LICENSE                 <-- Project license information
-│       README.md               <-- Project documentation
+│       Article_SHG-CW-G-Coupl…   <-- Main research article PDF
+│       CITATION.cff              <-- Citation metadata file
+│       LICENSE                   <-- Project license information
+│       README.md                 <-- Project documentation
 ```
 
 ## 2. Getting Started
