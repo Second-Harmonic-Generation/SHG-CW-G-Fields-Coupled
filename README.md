@@ -62,8 +62,6 @@ Article title:
 
 This repository contains the **Computational Toolkit for Heat Coupled Gaussian Continuous-Wave Double-Pass Type-II Second Harmonic Generation**, an open-source Fortran implementation developed to solve the thermal effects problem described in the research article: **"Heat coupled Gaussian continuous-wave double-pass type-II second harmonic generation: inclusion of thermally induced phase mismatching and thermal lensing"**
 
-### Toolkit Overview
-
 This toolkit implements the eight-coupled equation model that simultaneously solves the thermal effects in type II second harmonic generation (SHG) of Gaussian continuous-wave (CW) in a double-pass cavity. The model includes thermally induced phase mismatching (TIPM) along with thermal lensing through the interposing of heat and TIPM equations.
 
 The toolkit provides:
