@@ -66,8 +66,6 @@ This repository contains the **Computational Toolkit for Heat Coupled Gaussian C
 
 This toolkit implements the eight-coupled equation model that simultaneously solves the thermal effects in type II second harmonic generation (SHG) of Gaussian continuous-wave (CW) in a double-pass cavity. The model includes thermally induced phase mismatching (TIPM) along with thermal lensing through the interposing of heat and TIPM equations.
 
-### Key Components
-
 The toolkit provides:
 - **Eight-coupled equation solver** for simultaneous solution of SHG, heat, and TIPM equations
 - **Double-pass cavity simulation** with proper boundary conditions and mirror reflectivities
@@ -76,8 +74,6 @@ The toolkit provides:
 - **Gaussian beam propagation** with absorption and thermal effects
 - **KTP crystal properties** with temperature-dependent material parameters
 - **Home-computer compatible** numerical procedures for efficient computation
-
-### Validation
 
 The implementation has been validated by reproducing experimental data with excellent agreement, as reported in the research article. The model successfully demonstrates how SHG is affected in time when heat is generated in the crystal, providing crucial insights into thermal limitations in continuous-wave second harmonic generation systems. This toolkit was specifically developed to solve the thermal modeling problem described in the research article and provides a complete computational framework for analyzing thermal effects in double-pass SHG systems.
 
