@@ -60,9 +60,7 @@ Article title:
 
 ## 1. About this repository
 
-This repository contains the **Computational Toolkit for Heat Coupled Gaussian Continuous-Wave Double-Pass Type-II Second Harmonic Generation**, an open-source Fortran implementation developed to solve the thermal effects problem described in the research article:
-
-**"Heat coupled Gaussian continuous-wave double-pass type-II second harmonic generation: inclusion of thermally induced phase mismatching and thermal lensing"**
+This repository contains the **Computational Toolkit for Heat Coupled Gaussian Continuous-Wave Double-Pass Type-II Second Harmonic Generation**, an open-source Fortran implementation developed to solve the thermal effects problem described in the research article: **"Heat coupled Gaussian continuous-wave double-pass type-II second harmonic generation: inclusion of thermally induced phase mismatching and thermal lensing"**
 
 ### Toolkit Overview
 
