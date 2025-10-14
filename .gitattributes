@@ -1,0 +1,29 @@
+# Force Fortran when present
+*.f      linguist-language=Fortran
+*.for    linguist-language=Fortran
+*.f90    linguist-language=Fortran
+*.f95    linguist-language=Fortran
+*.F      linguist-language=Fortran
+*.F90    linguist-language=Fortran
+*.F95    linguist-language=Fortran
+
+# Exclude plotting & results from language stats
+*.plt            linguist-vendored
+*.gp             linguist-vendored
+*.gnu            linguist-vendored
+results/**       linguist-vendored
+data/**          linguist-vendored
+*.dat            linguist-vendored
+*.csv            linguist-vendored
+
+# Docs & binaries out of stats
+*.md             linguist-documentation
+citation/**      linguist-documentation
+*.pdf            linguist-documentation
+images/**        linguist-generated
+
+# Build artifacts
+*.o              linguist-generated
+*.mod            linguist-generated
+*.a              linguist-generated
+build/**         linguist-generated
